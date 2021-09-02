@@ -1,6 +1,6 @@
 # Simple-Falling-Sand
 
-### Youtube Channel : http://www.youtube.com/channel/UCjPk9YDheKst1FlAf_KSpyA?sub_confirmation=1
+### Youtube Channel : http://www.youtube.com/c/Auctux?sub_confirmation=1
 
 ---
 ### Requirements
