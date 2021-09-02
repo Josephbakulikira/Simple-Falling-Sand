@@ -2,8 +2,8 @@ import pygame
 from math import floor
 from Grid import Grid
 
-Width = 800
-Height = 800
+Width = 1920
+Height = 1080
 cell_size = 10
 Resolution = (Width, Height)
 r, c= Width//cell_size, Height//cell_size
@@ -37,6 +37,8 @@ while run:
                 run = False
             if event.key == pygame.K_SPACE:
                 isPaused = not isPaused
+            if event.key == pygame.K_r:
+                grid.ResetGrid()
 
     sec = clock.get_rawtime()/100;
     countDownMS -= sec;
