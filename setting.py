@@ -6,12 +6,13 @@ class Setting:
     window = None
 
     cell_size = 20
-    cols = width//cell_size
-    rows = height//cell_size
+    cols = height//cell_size
+    rows = width//cell_size
+    offset = 0
 
     EMPTY   = 0
     SAND    = 1
-    WATER   = 2
-    ROCK    = 3
-    
-    Colors  = [(0, 0, 0), (255, 255, 0), (0, 0, 255), (100, 100, 100)]
+
+    Colors  = [(0, 0, 0), (255, 185, 30)]
+    black = (0, 0, 0)
+    white = (255, 255, 255)

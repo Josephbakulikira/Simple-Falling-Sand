@@ -17,6 +17,7 @@ updateRate = 0.05;
 countDownMS = updateRate;
 toggleCounterMS = 0.0;
 toggleThresholdMS = 0.125;
+# screen.fill(setting.black)
 
 isPaused = False
 run = True
@@ -40,6 +41,8 @@ while run:
     toggleCounterMS += sec;
 
     if countDownMS < 0.0:
+
+
         if pygame.mouse.get_pressed()[0]:
             mx, my = pygame.mouse.get_pos()
             _x = floor(mx/setting.cell_size)

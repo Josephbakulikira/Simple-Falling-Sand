@@ -29,9 +29,6 @@ class Grid:
         if self.PreviousGrid[x][y+1] == self.setting.EMPTY:
             self.CurrentGrid[x][y] = self.setting.EMPTY
             self.CurrentGrid[x][y+1] = self.setting.SAND
-        elif self.PreviousGrid[x][y+1] == self.setting.WATER:
-            self.CurrentGrid[x][y] = self.setting.WATER
-            self.CurrentGrid[x][y+1] = self.setting.SAND
 
         #check if the bottom left and bottom right right cells are available
         elif self.PreviousGrid[x-1][y+1] == 0 and self.PreviousGrid[x+1][y+1] == 0:
@@ -60,4 +57,7 @@ class Grid:
             for y in range(self.cols):
                 val = self.CurrentGrid[x][y]
                 self.PreviousGrid[x][y] = val
-                pygame.draw.rect(self.screen, self.colors[val], [int(x * self.cell_size), int((y - 1) * self.cell_size), self.cell_size, self.cell_size])
+                pygame.draw.rect(self.screen, self.colors[val], [int(x * self.cell_size), int((y - 1) * self.cell_size),
+                self.cell_size-self.setting.offset,
+                self.cell_size-self.setting.offset
+                ])
