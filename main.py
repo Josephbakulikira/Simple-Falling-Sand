@@ -1,24 +1,19 @@
 import pygame
 from math import floor
 from Grid import Grid
+from setting import Setting
 
-Width = 1920
-Height = 1080
-cell_size = 10
-Resolution = (Width, Height)
-r, c= Width//cell_size, Height//cell_size
+setting = Setting()
 
-screen = pygame.display.set_mode(Resolution)
+screen = pygame.display.set_mode(setting.size)
+setting.window = screen
 clock = pygame.time.Clock()
-fps = 60
 
-black, white = (0, 0, 0), (255, 255, 255)
-
-grid = Grid(r, c, cell_size)
+grid = Grid(setting)
 
 instatiate_radius = 70;
 
-updateRate = 0.04;
+updateRate = 0.05;
 countDownMS = updateRate;
 toggleCounterMS = 0.0;
 toggleThresholdMS = 0.125;
@@ -26,9 +21,9 @@ toggleThresholdMS = 0.125;
 isPaused = False
 run = True
 while run:
-    clock.tick(fps)
+    clock.tick(setting.fps)
     pygame.display.set_caption("Falling Sand - FPS: {}".format(int(clock.get_fps())))
-
+    # handle event
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False
@@ -47,15 +42,14 @@ while run:
     if countDownMS < 0.0:
         if pygame.mouse.get_pressed()[0]:
             mx, my = pygame.mouse.get_pos()
-            _x = floor(mx/cell_size)
-            _y = floor(my/cell_size)
+            _x = floor(mx/setting.cell_size)
+            _y = floor(my/setting.cell_size)
             grid.Instantiate(_x, _y, 1)
 
         if isPaused == False:
-            screen.fill(black)
             grid.UpdateGrid()
             countDownMS = updateRate
-            grid.Draw(screen)
+            grid.Draw()
 
     pygame.display.flip()
 
